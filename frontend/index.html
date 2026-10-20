@@ -1,0 +1,226 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpendWise | Expense Tracker</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="app-container">
+
+        <aside class="sidebar">
+            <a href="#" class="brand">
+                <span class="brand-icon">S</span>
+                <span>SpendWise</span>
+            </a>
+
+            <p class="nav-label">MENU</p>
+            <nav class="navigation">
+                <a href="#dashboard" class="nav-link active">▦ <span>Dashboard</span></a>
+                <a href="#transactions" class="nav-link">↔ <span>Transactions</span></a>
+                <a href="#analytics" class="nav-link">▥ <span>Analytics</span></a>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <div class="tip-card">
+                    <span>✦ Smart Tip</span>
+                    <p>Small savings today can build a better tomorrow.</p>
+                </div>
+                <div class="profile">
+                    <div class="avatar">B</div>
+                    <div>
+                        <strong>My Account</strong>
+                        <small>Personal Finance</small>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content" id="dashboard">
+            <header class="topbar">
+                <div>
+                    <p class="eyebrow">YOUR FINANCES AT A GLANCE</p>
+                    <h1>Dashboard
+                    </h1>
+                    <p class="subtitle">Welcome back! Here's your financial overview.</p>
+                </div>
+                <button class="primary-btn" id="openModalBtn">+ Add Transaction</button>
+            </header>
+
+            <section class="summary-grid">
+                <article class="summary-card balance-card">
+                    <div class="card-top">
+                        <span>Total Balance</span>
+                        <span class="card-icon">₹</span>
+                    </div>
+                    <h2 id="totalBalance">₹0.00</h2>
+                    <p class="card-note">Income minus expenses</p>
+                </article>
+
+                <article class="summary-card">
+                    <div class="card-top">
+                        <span>Total Income</span>
+                        <span class="card-icon income-icon">↙</span>
+                    </div>
+                    <h2 id="totalIncome">₹0.00</h2>
+                    <p class="card-note">Money received</p>
+                </article>
+
+                <article class="summary-card">
+                    <div class="card-top">
+                        <span>Total Expenses</span>
+                        <span class="card-icon expense-icon">↗</span>
+                    </div>
+                    <h2 id="totalExpenses">₹0.00</h2>
+                    <p class="card-note">Money spent</p>
+                </article>
+
+                <article class="summary-card">
+                    <div class="card-top">
+                        <span>Savings Rate</span>
+                        <span class="card-icon savings-icon">%</span>
+                    </div>
+                    <h2 id="savingsRate">0%</h2>
+                    <p class="card-note">Income saved</p>
+                </article>
+            </section>
+
+            <section class="content-grid" id="analytics">
+                <article class="panel chart-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Expense Breakdown</h3>
+                            <p>See where your money goes</p>
+                        </div>
+                        <span class="pill">By category</span>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="expenseChart"></canvas>
+                    </div>
+                </article>
+
+                <article class="panel insight-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h3>Financial Snapshot</h3>
+                            <p>Your current spending summary</p>
+                        </div>
+                    </div>
+                    <div class="insight-icon">✦</div>
+                    <h4>Stay in control</h4>
+                    <p id="financialInsight">Add your transactions to see your financial summary.</p>
+                    <div class="insight-divider"></div>
+                    <div class="insight-row">
+                        <span>Transactions</span>
+                        <strong id="transactionCount">0</strong>
+                    </div>
+                    <div class="insight-row">
+                        <span>Top spending category</span>
+                        <strong id="topCategory">—</strong>
+                    </div>
+                </article>
+            </section>
+
+            <section class="panel transactions-panel" id="transactions">
+                <div class="panel-heading transaction-heading">
+                    <div>
+                        <h3>Recent Transactions</h3>
+                        <p>Track your income and everyday spending</p>
+                    </div>
+                    <div class="filters">
+                        <input type="search" id="searchInput" placeholder="Search transactions...">
+                        <select id="typeFilter">
+                            <option value="all">All types</option>
+                            <option value="income">Income</option>
+                            <option value="expense">Expenses</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>TRANSACTION</th>
+                                <th>CATEGORY</th>
+                                <th>DATE</th>
+                                <th>AMOUNT</th>
+                                <th>ACTION</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionList"></tbody>
+                    </table>
+                </div>
+                <div class="empty-state" id="emptyState" hidden>
+                    <span>▤</span>
+                    <h4>No transactions found</h4>
+                    <p>Add a transaction or change your search.</p>
+                </div>
+            </section>
+
+            <footer>
+                <p>© 2026 SpendWise · Manage your money mindfully.</p>
+            </footer>
+        </main>
+    </div>
+
+    <div class="modal-overlay" id="transactionModal" hidden>
+        <section class="modal">
+            <div class="modal-heading">
+                <div>
+                    <h2 id="modalTitle">Add Transaction</h2>
+                    <p>Enter the details below.</p>
+                </div>
+                <button type="button" class="close-btn" id="closeModalBtn" aria-label="Close">×</button>
+            </div>
+
+            <form id="transactionForm">
+                <input type="hidden" id="transactionId">
+
+                <label for="title">Transaction name</label>
+                <input id="title" type="text" placeholder="e.g. Grocery shopping" maxlength="80" required>
+
+                <div class="form-row">
+                    <div>
+                        <label for="amount">Amount (₹)</label>
+                        <input id="amount" type="number" min="0.01" step="0.01" placeholder="500" required>
+                    </div>
+                    <div>
+                        <label for="type">Type</label>
+                        <select id="type" required>
+                            <option value="expense">Expense</option>
+                            <option value="income">Income</option>
+                        </select>
+                    </div>
+                </div>
+
+                <label for="category">Category</label>
+                <select id="category" required>
+                    <option value="Food">Food</option>
+                    <option value="Shopping">Shopping</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Bills">Bills</option>
+                    <option value="Education">Education</option>
+                    <option value="Health">Health</option>
+                    <option value="Salary">Salary</option>
+                    <option value="Freelance">Freelance</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <label for="date">Date</label>
+                <input id="date" type="date" required>
+
+                <div class="modal-actions">
+                    <button type="button" class="secondary-btn" id="cancelBtn">Cancel</button>
+                    <button type="submit" class="primary-btn" id="saveBtn">Save Transaction</button>
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

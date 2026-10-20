@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.DS_Store
+.vscode/
+
+# Local database containing personal transactions
+backend/spendwise.db
