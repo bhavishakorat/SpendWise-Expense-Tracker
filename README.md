@@ -1,8 +1,8 @@
-# SpendWise – Personal Expense Tracker 💰
+# SpendWise – Personal Expense Tracker 
 
 SpendWise is a web-based expense tracking application that helps users manage their income, expenses, and transactions through a simple and interactive dashboard.
 
-## ✨ Features
+##  Features
 
 - User registration and login
 - Add, edit, and delete transactions
@@ -13,7 +13,7 @@ SpendWise is a web-based expense tracking application that helps users manage th
 - Financial summaries and spending insights
 - Export transaction records to Excel
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 **Frontend:** HTML, CSS, JavaScript, Chart.js
 
@@ -23,7 +23,7 @@ SpendWise is a web-based expense tracking application that helps users manage th
 
 **Tools:** Visual Studio Code, Git, GitHub
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 SpendWise/
@@ -38,7 +38,7 @@ SpendWise/
 └── README.md
 ```
 
-## 🚀 How to Run Locally
+##  How to Run Locally
 
 ### 1. Clone the repository
 
@@ -78,15 +78,15 @@ Open the `frontend` folder in Visual Studio Code and run `index.html` using the 
 
 Keep the Flask backend running while using the website. Ensure the frontend API configuration points to the running backend.
 
-## 🎯 Project Objective
+##  Project Objective
 
 The objective of SpendWise is to make personal expense tracking easier and help users understand their spending habits through clear financial summaries and visualizations.
 
-## 📚 Learning Outcomes
+## Learning Outcomes
 
 Through this project, I practised frontend development, Python programming, Flask APIs, database operations, user authentication, data visualization, and GitHub version control.
 
-## 👩‍💻 Author
+##  Author
 
 **Bhavisha Korat**
 
