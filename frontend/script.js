@@ -1,5 +1,5 @@
 
-const API_BASE = " https://spendwise-expense-tracker-0zi2.onrender.com ";
+const API_BASE = "https://spendwise-expense-tracker-0zi2.onrender.com";
 const API_URL = `${API_BASE}/api/transactions`;
 const AUTH_URL = `${API_BASE}/api/auth`;
 
