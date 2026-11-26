@@ -50,9 +50,9 @@ app.config.update(
 
     SESSION_COOKIE_HTTPONLY=True,
 
-    SESSION_COOKIE_SAMESITE="Lax",
+    SESSION_COOKIE_SAMESITE="None",
 
-    SESSION_COOKIE_SECURE=False,  # Set True when using HTTPS.
+    SESSION_COOKIE_SECURE=True,  # Set True when using HTTPS.
 
     PERMANENT_SESSION_LIFETIME=60 * 60 * 8,
 
