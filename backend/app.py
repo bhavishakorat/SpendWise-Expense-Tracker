@@ -70,6 +70,8 @@ CORS(
 
         "http://localhost:5500",
 
+        "https://spendwise-expense-tracker-frontend.vercel.app",
+    
     ],
 
     supports_credentials=True,
