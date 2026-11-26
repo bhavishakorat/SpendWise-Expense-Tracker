@@ -1,4 +1,9 @@
-# SpendWise – Personal Expense Tracker 
+# SpendWise – Personal Expense Tracker
+## 🔗 Live Demo
+
+**Website:** [spendwise-expense-tracker-frontend.vercel.app](https://spendwise-expense-tracker-frontend.vercel.app)
+
+Note: The backend runs on Render's free plan, so the first load may take 30–50 seconds while the server wakes up. 
 
 SpendWise is a web-based expense tracking application that helps users manage their income, expenses, and transactions through a simple and interactive dashboard.
 
@@ -20,6 +25,8 @@ SpendWise is a web-based expense tracking application that helps users manage th
 **Backend:** Python, Flask
 
 **Database:** SQLite
+
+**Deployment:** Vercel (frontend), Render (backend)
 
 **Tools:** Visual Studio Code, Git, GitHub
 
